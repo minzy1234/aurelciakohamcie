@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kocham Cię Aurela</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="animated-title">Kocham Cię ❤️</div>
+
+<div class="container">
+  <h1>😍 Kliknij myszko </h1>
+  <button class="play-button" onclick="window.open('https://www.youtube.com/watch?v=zxy7ZkfBpZY', '_blank')">▶️ Play</button>
+
+  <div class="text-section">
+    <h2>❤️ Kocham cię </h2>
+    <p>Kochana aurelciu, przede wszystkim chciałbym pogratulować ci skończenia szkoły. To był dla ciebie naprawdę ciężki rok, pełen wzlotów i upadków. Jesteś wspaniałą dziewczyną, która zasługuje na wszystko co najlepsze. Kocham cię myszko!</p>
+  </div>
+
+  <div class="image-section">
+    <h2>❤️ To my słoneczko</h2>
+    <img src="https://i.pinimg.com/736x/0b/72/7d/0b727d01ab308cd8426f47399392e25b.jpg" alt="Obrazek 1">
+    <img src="https://i.pinimg.com/474x/0a/a2/29/0aa2293845e4e5da48f4e522e501458d.jpg" alt="Obrazek 2" style="margin-top: 20px;">
+  </div>
+
+  <div class="image-section">
+    <h2>🖼️ Nasze wspomnienie</h2>
+    <button class="play-button" onclick="showMemory()">Zobacz nasze wspomnienie</button>
+    <div id="memory" style="display:none; margin-top: 20px;">
+      <img src="wspomnienie.jpg" alt="Wspomnienie" style="margin-top: 20px;">
+    </div>
+  </div>
+</div>
+
+<div id="quote"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Serduszka
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.top = Math.random() * 100 + 'vh';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heart.innerText = '❤️';
+    document.body.appendChild(heart);
+  }
+
+  // Cytaty
+  const quotes = [
+    "Miłość to patrzenie w jednym kierunku ❤️",
+    "Jesteś światłem mojego życia ✨",
+    "Każde bicie mojego serca to KOCHAM CIĘ 💖",
+    "Z Tobą wszystko ma sens 🌹",
+    "Nie ma nic piękniejszego niż Ty ❤️"
+  ];
+  let quoteIndex = 0;
+  const quoteEl = document.getElementById("quote");
+  quoteEl.innerText = quotes[quoteIndex];
+  setInterval(() => {
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+    quoteEl.innerText = quotes[quoteIndex];
+  }, 5000);
+});
+
+function showMemory() {
+  document.getElementById("memory").style.display = "block";
+}
+</script>
+
+</body>
+</html>
